@@ -18,4 +18,9 @@ public class TrackService {
 		List<Track_Dto> result = trackDao.search(searchMap);
 		return result;
 	}
+	
+	public int getSearchRow(String keyword){
+		int rowCount = trackDao.getSearchRow();
+		return rowCount;
+	}
 }

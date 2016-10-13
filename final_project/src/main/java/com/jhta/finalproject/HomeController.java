@@ -10,14 +10,10 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String home() {		
-		return "overall";
-	}
-	
-	@RequestMapping("/main")
-	public String main() {
 		return ".main";
 	}
 	
+
 	@RequestMapping("/notification")
 	public String notification(){
 		return ".notification";

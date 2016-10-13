@@ -70,5 +70,7 @@
 		)where rownum=1
 	</select>
 	<select id="search" parameterType="string">
+		select * from track
+		where track_title = #{
 	</select>
 </mapper>

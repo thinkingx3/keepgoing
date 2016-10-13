@@ -49,5 +49,9 @@ public class Track_Dao {
 	public List<Track_Dto> search(HashMap<String, String> searchMap){
 		return sqlSession.selectList(NAMESPACE +".search",searchMap);
 	}
+	
+	public int getSearchRow(String keyword){
+		return sqlSession.selectOne(NAMESPACE +".search",keyword);
+	}
 
 }
