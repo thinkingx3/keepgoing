@@ -5,11 +5,16 @@ $(document).ready(function(){
 		$(this).parent().find('ul').toggle(function(){
 		});
 	});
+
 	$(document).click(function(event){//다른데 클릭하면 꺼지게 해야 함
 		var dropDownMenu=$('.userNav_after_menu ul li ul');
 		if($(event.target).is($(this))){
 			//alert('working');
 			//dropDownMenu.hide();
 		}
+	});
+
+	$('#search_button').click(function(){
+		
 	});
 });

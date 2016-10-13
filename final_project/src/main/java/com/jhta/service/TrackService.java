@@ -20,7 +20,7 @@ public class TrackService {
 	}
 	
 	public int getSearchRow(String keyword){
-		int rowCount = trackDao.getSearchRow();
+		int rowCount = trackDao.getSearchRow(keyword);
 		return rowCount;
 	}
 }
