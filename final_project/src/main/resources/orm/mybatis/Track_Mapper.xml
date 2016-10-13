@@ -69,4 +69,6 @@
 		   <![CDATA[where track_num>#{value} order by track_num asc]]>
 		)where rownum=1
 	</select>
+	<select id="search" parameterType="string">
+	</select>
 </mapper>
