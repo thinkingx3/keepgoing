@@ -17,15 +17,19 @@ public class Track_Dao {
 	public int insert(Track_Dto dto) {
 		return sqlSession.insert(NAMESPACE + ".insert",dto);
 	}
+	
 	public int getCount(){
 		return sqlSession.selectOne(NAMESPACE + ".getCount");
 	}
+	
 	public Track_Dto detail(int track_num){
 		return sqlSession.selectOne(NAMESPACE +".detail",track_num);
 	}
+	
 	public Track_Dto prev(int track_num){
 		return sqlSession.selectOne(NAMESPACE +".prev",track_num);
 	}
+	
 	public Track_Dto next(int track_num){
 		return sqlSession.selectOne(NAMESPACE +".next",track_num);
 	} 
@@ -33,11 +37,17 @@ public class Track_Dao {
 	public int addHit(int track_num){
 		return sqlSession.update(NAMESPACE +".addHit",track_num);
 	}
+	
 	public int delete(Track_Dto dto) {
 		return sqlSession.insert(NAMESPACE + ".delete",dto);
 	}
+	
 	public List<Track_Dto> list(HashMap<String,Integer> map){
 		return sqlSession.selectList(NAMESPACE +".list",map);
+	}
+	
+	public List<Track_Dto> search(HashMap<String, String> searchMap){
+		return sqlSession.selectList(NAMESPACE +".search",searchMap);
 	}
 
 }

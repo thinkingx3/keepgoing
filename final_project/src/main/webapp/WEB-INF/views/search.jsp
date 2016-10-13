@@ -32,7 +32,7 @@
           <th>Artist</th>
           <th>Plays</th>
           <th>Likes</th>
-          <th>Date</th>
+          <th>Release Date</th>
         </tr>
       </thead>
       <tbody>
