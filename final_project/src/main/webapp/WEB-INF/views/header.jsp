@@ -6,8 +6,12 @@
 		</div>
 	</div>
 	<div class="header_middle">
-		<input type="text" name="search" class="searchbar">
-		<button id="search_button"><span  class="glyphicon glyphicon-search"></span></button>
+		<form class="search_form" action="/search/track" method="post" id="search_form">
+			<input type="text" name="keyword" class="searchbar">
+		</form>
+		<button id="search_button" type="submit" form="search_form">
+			<span  class="glyphicon glyphicon-search"></span>
+		</button>
 	</div>
 	<div class="header_right">
 <c:set value="user" scope="session" var="id"/>

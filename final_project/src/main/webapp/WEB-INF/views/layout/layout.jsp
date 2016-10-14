@@ -34,7 +34,7 @@
 <script type="text/javascript" src="/resources/js/signup.js"></script>
 <script type="text/javascript" src="/resources/js/mypage.js"></script>
 <script type="text/javascript" src="/resources/js/trackpage.js"></script>
-<script type="text/javascript" src="/resources/js/infiniteScroll.js"></script>
+<!-- <script type="text/javascript" src="/resources/js/infiniteScroll.js"></script>-->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

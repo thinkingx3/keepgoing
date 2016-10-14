@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import com.jhta.dto.Track_Dto;
 
+import test.util.PageUtil;
+
 
 @Repository
 public class Track_Dao {
@@ -52,6 +54,10 @@ public class Track_Dao {
 	
 	public int getSearchRow(String keyword){
 		return sqlSession.selectOne(NAMESPACE +".search",keyword);
+	}
+	
+	public List<Track_Dto> getSearchList(PageUtil pageUtil,String keyword){
+		return sqlSession.selectList(NAMESPACE +".search",keyword);
 	}
 
 }

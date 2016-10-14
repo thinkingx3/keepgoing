@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.jhta.dao.Track_Dao;
 import com.jhta.dto.Track_Dto;
 
+import test.util.PageUtil;
+
 @Service
 public class TrackService {
 	
@@ -23,4 +25,10 @@ public class TrackService {
 		int rowCount = trackDao.getSearchRow(keyword);
 		return rowCount;
 	}
+	
+	public List<Track_Dto> getSearchList(PageUtil pageUtil,String keyword){
+		List<Track_Dto> list = trackDao.getSearchList(pageUtil,keyword);
+		return list;
+	}
+	
 }

@@ -13,8 +13,4 @@ $(document).ready(function(){
 			//dropDownMenu.hide();
 		}
 	});
-
-	$('#search_button').click(function(){
-		
-	});
 });
