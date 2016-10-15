@@ -48,14 +48,19 @@
 	
 	<!-- 글목록 -->
 	<select id="list" parameterType="hashmap" resultType="com.jhta.dto.Track_Dto">
-		select * from(
-		 select aa.*,rownum rnum from
-		  (
-			select * from track
-			order by track_num desc
-		  )aa
-		)
+		SELECT TT.*,G.GENRE_NAME
+		FROM (
+		  SELECT * 
+		  FROM(
+		    SELECT ROWNUM RNUM,T.*
+		    FROM(
+		      SELECT * FROM TRACK
+		      ORDER BY TRACK_NUM DESC
+		    )T
+		  )
 		<![CDATA[ where rnum>=#{startRow} and rnum<=#{endRow} ]]>
+		) TT,GENRE G
+		WHERE TT.GENRE_CODE=G.GENRE_CODE;
 	</select>
 	<select id="prev" parameterType="int" resultType="com.jhta.dto.Track_Dto">
 		select * from(

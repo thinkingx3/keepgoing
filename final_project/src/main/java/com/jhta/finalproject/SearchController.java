@@ -31,7 +31,8 @@ public class SearchController {
 		int rowBlockCount = 20;
 		int pageBlockCount = 10;
 		PageUtil pageUtil = new PageUtil(pageNum, totalRowCount, rowBlockCount, pageBlockCount);
-		List<Track_Dto> result = service.searchTrack(pageUtil,keyword);
+		List<Track_Dto> result = service.getSearchList(pageUtil,keyword);
+		model.addAttribute("list", result);
 		return ".search";
 	}
 
