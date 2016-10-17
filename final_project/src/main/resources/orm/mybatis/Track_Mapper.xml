@@ -73,7 +73,7 @@
 		FROM TRACK
 		WHERE TRACK_TITLE=#{value}
 	</select>
-	<select id="getSearchList" parameterType="hashmap" resultType="com.jhta.dto.Track_Dto">
+	<select id="getSearchList" parameterType="hashmap" resultType="com.jhta.dto.TrackSearch_Dto">
 		SELECT TT.*,G.GENRE_NAME
 		FROM (
 		  SELECT * 
@@ -88,5 +88,6 @@
 		<![CDATA[ where rnum>=#{startRow} and rnum<=#{endRow} ]]>
 		) TT,GENRE G
 		WHERE TT.GENRE_CODE=G.GENRE_CODE
+		ORDER BY RNUM
 	</select>
 </mapper>

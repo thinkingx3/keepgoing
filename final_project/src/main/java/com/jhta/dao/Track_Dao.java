@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.jhta.dto.TrackSearch_Dto;
 import com.jhta.dto.Track_Dto;
 
 import test.util.PageUtil;
@@ -53,10 +54,10 @@ public class Track_Dao {
 		return sqlSession.selectOne(NAMESPACE +".getSearchRow",keyword);
 	}
 	
-	public List<Track_Dto> getSearchList(HashMap<String, String> searchSet){
-		System.out.println(searchSet.get("keyword"));
-		System.out.println(searchSet.get("startRow"));
-		System.out.println(searchSet.get("endRow"));
+	public List<TrackSearch_Dto> getSearchList(HashMap<String, String> searchSet){
+		System.out.println("keyword:"+searchSet.get("keyword"));
+		System.out.println("startRow"+searchSet.get("startRow"));
+		System.out.println("endRow"+searchSet.get("endRow"));
 		return sqlSession.selectList(NAMESPACE +".getSearchList",searchSet);
 	}
 
