@@ -27,8 +27,6 @@
  		from track 
  		where track_num=#{value}
  	</delete>
- 	<update id="update" >
- 	</update>
  	<select id="getInfo" parameterType="int" resultType="com.jhta.dto.Track_Dto">
  		select * 
  		from track
@@ -48,19 +46,15 @@
 	
 	<!-- 글목록 -->
 	<select id="list" parameterType="hashmap" resultType="com.jhta.dto.Track_Dto">
-		SELECT TT.*,G.GENRE_NAME
-		FROM (
-		  SELECT * 
-		  FROM(
+		SELECT * 
+		FROM(
 		    SELECT ROWNUM RNUM,T.*
 		    FROM(
-		      SELECT * FROM TRACK
-		      ORDER BY TRACK_NUM DESC
-		    )T
-		  )
+		    SELECT * FROM TRACK
+		    ORDER BY TRACK_NUM DESC
+		  )T
+		)
 		<![CDATA[ where rnum>=#{startRow} and rnum<=#{endRow} ]]>
-		) TT,GENRE G
-		WHERE TT.GENRE_CODE=G.GENRE_CODE;
 	</select>
 	<select id="prev" parameterType="int" resultType="com.jhta.dto.Track_Dto">
 		select * from(
@@ -74,9 +68,25 @@
 		   <![CDATA[where track_num>#{value} order by track_num asc]]>
 		)where rownum=1
 	</select>
-	<select id="getSearchRow" resultType="int" parameterType="string">
-		SELECT MAX(NVL(ROWNUM,0)) 
-		FROM TRACK 
-		WHERE TRACK_TITLE=#{VALUE}
+	<select id="getSearchRow" resultType="int" parameterType="String">
+		SELECT NVL(MAX(ROWNUM),0) 
+		FROM TRACK
+		WHERE TRACK_TITLE=#{value}
+	</select>
+	<select id="getSearchList" parameterType="hashmap" resultType="com.jhta.dto.Track_Dto">
+		SELECT TT.*,G.GENRE_NAME
+		FROM (
+		  SELECT * 
+		  FROM(
+		    SELECT ROWNUM RNUM,T.*
+		    FROM(
+		      SELECT * FROM TRACK
+		      WHERE TRACK_TITLE=#{keyword}
+		      ORDER BY TRACK_NUM DESC
+		    )T
+		  )
+		<![CDATA[ where rnum>=#{startRow} and rnum<=#{endRow} ]]>
+		) TT,GENRE G
+		WHERE TT.GENRE_CODE=G.GENRE_CODE
 	</select>
 </mapper>

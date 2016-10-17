@@ -48,16 +48,16 @@ public class Track_Dao {
 		return sqlSession.selectList(NAMESPACE +".list",map);
 	}
 	
-	public List<Track_Dto> search(HashMap<String, String> searchMap){
-		return sqlSession.selectList(NAMESPACE +".search",searchMap);
-	}
 	
 	public int getSearchRow(String keyword){
-		return sqlSession.selectOne(NAMESPACE +".search",keyword);
+		return sqlSession.selectOne(NAMESPACE +".getSearchRow",keyword);
 	}
 	
-	public List<Track_Dto> getSearchList(PageUtil pageUtil,String keyword){
-		return sqlSession.selectList(NAMESPACE +".search",keyword);
+	public List<Track_Dto> getSearchList(HashMap<String, String> searchSet){
+		System.out.println(searchSet.get("keyword"));
+		System.out.println(searchSet.get("startRow"));
+		System.out.println(searchSet.get("endRow"));
+		return sqlSession.selectList(NAMESPACE +".getSearchList",searchSet);
 	}
 
 }

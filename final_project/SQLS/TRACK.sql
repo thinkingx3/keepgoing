@@ -13,6 +13,7 @@ CREATE TABLE TRACK(
 	TRACK_CONDITION NUMBER(2),        --�Ű������� ó��
 	TRACK_PLAYCOUNT NUMBER(20),            --����Ƚ��
 	TRACK_LIKECOUNT NUMBER(20),
+  TRACK_COMTCOUNT NUMBER(20), --댓글 누적횟수
 	GENRE_CODE NUMBER(10)             --�帣���̺��� ���� FK
 );
 DROP SEQUENCE TRACK_SEQ;

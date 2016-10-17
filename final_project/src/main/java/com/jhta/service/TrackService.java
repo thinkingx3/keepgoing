@@ -1,5 +1,6 @@
 package com.jhta.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,8 @@ public class TrackService {
 		return rowCount;
 	}
 	
-	public List<Track_Dto> getSearchList(PageUtil pageUtil,String keyword){
-		List<Track_Dto> list = trackDao.getSearchList(pageUtil,keyword);
+	public List<Track_Dto> getSearchList(HashMap<String, String> searchSet){
+		List<Track_Dto> list = trackDao.getSearchList(searchSet);
 		return list;
 	}
 	
